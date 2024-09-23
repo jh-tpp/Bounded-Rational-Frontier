@@ -8,6 +8,8 @@ This repository contains the materials for the research note titled *"The Bounde
 - `Rational_Frontiers_Note.pdf`: A PDF version of the note for easier reading.
 - `Rational_Frontiers_Note.html`: An HTML export of the notebook (not fully compatible with GitHub’s online rendering).
 - `Images/`: A folder containing the images used in the notebook.
+- `Modules/`: A folder containing the underlying code.
+- `Results/`: A folder storing results of some of the model simulations.
 
 ## Viewing the Note
 
