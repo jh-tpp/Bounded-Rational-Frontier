@@ -6,7 +6,7 @@ This repository contains the materials for the research note titled *"The Bounde
 
 GitHub’s web interface may not display the Jupyter Notebook (`.ipynb`) and HTML files correctly. If you're interested in reading the research note, **I recommend viewing the PDF version, which is fully compatible and displays all content as intended**.
 
-You can view the PDF directly [here](./Rational_Frontiers_Note.pdf).
+You can view the PDF directly [here](./Rational_Frontiers_note.pdf).
 
 ## Playing with the Code
 
