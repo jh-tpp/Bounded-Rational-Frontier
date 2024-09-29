@@ -3,7 +3,14 @@ import pandas as pd
 import itertools
 from Modules.BlahutArimotoAOS import BAiterations
 
-
+"""
+Set up observation scenarios.
+Args:
+    da: Step size for actions
+    v: Upside parameter
+Returns:
+    List of scenario dictionaries
+"""
 def setup_scenarios(da=1,v=10):
     a_values, a_strings, s_values, s_strings, U_mat = setup_U_mat(a_step=da, vu=v)  # Recalculate U_mat for each v
 
@@ -17,6 +24,14 @@ def setup_scenarios(da=1,v=10):
 
     return scenarios
 
+"""
+Set up utility matrix for actions and states.
+Args:
+    a_step: Step size for actions
+    vu: Utility parameter
+Returns:
+    Action values, action strings, state values, state strings, and utility matrix
+"""
 def setup_U_mat(a_step=0.5,vu=1):
 
     # Generate a_values from 0 to 1.0 in steps of a_step
@@ -42,7 +57,14 @@ def setup_U_mat(a_step=0.5,vu=1):
 
     return a_values, a_strings, s_values, s_strings, U_mat
 
-def setup_example_one_opp(scenario):
+"""
+Set up example scenario with probabilities and observations.
+Args:
+    scenario: Dictionary containing scenario parameters
+Returns:
+    Updated scenario dictionary with additional probability distributions
+"""
+def setup_example(scenario):
     # Try to retrieve the specific values, and fall back to general 'p1a' and 'p1b' if 'p1ad', 'p1bd', etc. are not present.
     p1a=scenario["p1a"]
     p1b=scenario["p1b"]
@@ -52,7 +74,7 @@ def setup_example_one_opp(scenario):
     
     # Define the possible values for v, u1, u2
     u1_values = [0, 1, 10]
-    u2_values = ["x", "y", "z"]
+    u2_values = ["Low", "Medium", "High"]
     u1_value_to_index = {val: idx for idx, val in enumerate(u1_values)}
     u2_value_to_index = {val: idx for idx, val in enumerate(u2_values)}
 
@@ -60,21 +82,16 @@ def setup_example_one_opp(scenario):
     o_combinations = list(itertools.product(u1_values, u2_values))
     # Enumerate them
     o_values = list(range(1, len(o_combinations) + 1))
-    o_strings = [f"o1={o[0]} o2={o[1]}" for o in o_combinations]
+    o_strings = [f"o={{{o[0]},{o[1]}}}" for o in o_combinations]
 
     s_values=scenario["s_values"]
-    # num_s_values=len(s_values)
-    # ps = np.ones(num_s_values) / num_s_values
     sd, su = s_values  # Assuming s_values has two entries
-    # sd * (1-p1)+su*p1=EV
+    
     # Calculate prior probabilities such that the expected value is 0
     EV=1
     p1 = (EV-sd) / (su-sd)
     p2 = 1 - p1
     ps = np.array([p2, p1])
-    #EU = -2*su*sd / (su-sd)
-    #EU^2 = sd^2 su / (su-sd) - su^2 sd / (su-sd) = - sd su 
-    #VU= -sd su (1+4 su sd /(su-sd)^2)
 
     # Define the conditional probabilities for u1 and u2 given v
     p_epsilon = 0.00001 #keep probabilities this distance from 0/1
@@ -129,6 +146,14 @@ def setup_example_one_opp(scenario):
     return scenario
 
 # Function to compute marginals
+"""
+Compute marginal probabilities for observations.
+Args:
+    ps: Probability distribution of states
+    pogs: Conditional probability of observations given states
+Returns:
+    Marginal probability of observations
+"""
 def compute_marginals_o(ps, pogs):
     po = pogs @ ps
     po += np.finfo(float).eps
@@ -136,21 +161,38 @@ def compute_marginals_o(ps, pogs):
 
     return po
 
-def generate_results(da=1,v_values=[2],n_samp_values=[0],gamma_values=[0],beta_ao_values=[1000],Ni=0,epsilon_conv=0.0001,use_IS=False,uscen_ids=slice(0, 5)):
+"""
+Generate results for different parameter combinations.
+Args:
+    da: Step size for actions
+    v_values: List of utility parameter values
+    n_samp_values: List of sample sizes
+    gamma_values: List of risk aversion parameter values
+    gamma_ao_values: List of complexity cost parameter values
+    Ni: Number of iterations
+    epsilon_conv: Convergence threshold
+    use_IS: Whether to use importance sampling
+    uscen_ids: Slice object to select scenarios
+Returns:
+    DataFrame of results and list of scenarios
+"""
+def generate_results(da=1,v_values=[2],n_samp_values=[0],gamma_values=[0],gamma_ao_values=[1000],Ni=0,epsilon_conv=0.0001,uscen_ids=slice(0, 5)):
 
-    # Nested loop over v, beta_ao, and scenarios
+    # Nested loop over v, gamma_ao, and scenarios
     results = []
     for v in v_values:
         scenarios=setup_scenarios(da=da,v=v)
+
         for scenario in scenarios[uscen_ids]:
-            scenario = setup_example_one_opp(scenario)
-            for gamma in gamma_values:
-                for beta_ao in beta_ao_values:
+            scenario = setup_example(scenario)
+
+            for gamma_var in gamma_values:
+                for gamma_ao in gamma_ao_values:
                     for n_samp in n_samp_values:
 
                         # First, run the scenario with sample_util=0
-                        pa_0, pago, pags, performance_df, risk_charge, E_U_mat = BAiterations(
-                            scenario, beta_ao=beta_ao, epsilon_conv=epsilon_conv,gamma=gamma,sample_util=0, compute_performance=True,performance_per_iteration=False, performance_as_dataframe=True, init_pago_uniformly=True
+                        pa_0, pago, pags, performance_df = BAiterations(
+                            scenario, gamma_ao=gamma_ao, epsilon_conv=epsilon_conv,gamma_var=gamma_var,sample_util=0, compute_performance=True,performance_per_iteration=False, performance_as_dataframe=True, init_pago_uniformly=True
                         )
                         E_U = performance_df['E_U'].values[0]
                         Var_U = performance_df['Var_U'].values[0]
@@ -163,12 +205,13 @@ def generate_results(da=1,v_values=[2],n_samp_values=[0],gamma_values=[0],beta_a
                             np.random.seed(99)
 
                             for i in range(1, Ni + 1):
-                                pa, pago, pags, performance_df, risk_charge, E_U_mat = BAiterations(
-                                    scenario, beta_ao=beta_ao,epsilon_conv=epsilon_conv,sample_util=n_samp,gamma=gamma,use_IS=use_IS, compute_performance=True,performance_per_iteration=False, performance_as_dataframe=True, init_pago_uniformly=True
+                                pa, pago, pags, performance_df = BAiterations(
+                                    scenario, gamma_ao=gamma_ao,epsilon_conv=epsilon_conv,sample_util=n_samp,gamma_var=gamma_var, compute_performance=True,performance_per_iteration=False, performance_as_dataframe=True, init_pago_uniformly=True
                                 )
                                 last_row = performance_df.apply(pd.Series.explode).iloc[[-1]]
                                 E_U_i[i - 1] = last_row['E_U'].values[0]
                                 Var_U_i[i - 1] = last_row['Var_U'].values[0]
+
                                 # Accumulate pa values
                                 pa_accumulated += pa
 
@@ -185,14 +228,14 @@ def generate_results(da=1,v_values=[2],n_samp_values=[0],gamma_values=[0],beta_a
                             # Calculate the average pa across the Ni iterations
                             average_pa = pa_accumulated / Ni
                         else:
-                            average_pa=[]
-                            mean_E_U=[]
-                            mean_Var_U=[]
-                            standard_error=[]
+                            average_pa=pa_0
+                            mean_E_U=E_U
+                            mean_Var_U=Var_U
+                            standard_error=0
 
                         # Store the results for both sample_util=0 and sample_util=3
                         results.append({
-                            "v": v,"beta_ao": beta_ao,"gamma": gamma,
+                            "v": v,"gamma_ao": gamma_ao,"gamma_var": gamma_var,
                             "scenario_id": scenario["id"],"scenario_name": scenario["name"],
                             "E_U": E_U, "Var_U": Var_U,"Vol_U": np.sqrt(Var_U), "I_ao":I_ao,
                             "n_samp": n_samp,

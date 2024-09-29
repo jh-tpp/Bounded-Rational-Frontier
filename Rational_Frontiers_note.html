@@ -15219,8 +15219,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="The-Bounded-Rational-Frontier:-Implications-for-research-in-AI,-Economics-and-Philosophy">The Bounded Rational Frontier: Implications for research in AI, Economics and Philosophy<a class="anchor-link" href="#The-Bounded-Rational-Frontier:-Implications-for-research-in-AI,-Economics-and-Philosophy">&#182;</a></h1><p>Jonathan Harris<br />
-September 22, 2023<br />
+<h1 id="The-Bounded-Rational-Frontier:-Rational-Uncertainty-Aversion-and-Implications-for-AI,-Economics-and-Philosophy">The Bounded Rational Frontier: Rational Uncertainty Aversion and Implications for AI, Economics and Philosophy<a class="anchor-link" href="#The-Bounded-Rational-Frontier:-Rational-Uncertainty-Aversion-and-Implications-for-AI,-Economics-and-Philosophy">&#182;</a></h1><p>Jonathan Harris<br />
+September 28, 2023<br />
 jonathan@total-portfolio.org</p>
 
 </div>
@@ -15233,23 +15233,58 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>This note introduces a toy model of bounded-rational decision making that demonstrates how open-mindedness and uncertainty aversion can be rational under practical constraints. This has important implications for research in a range of fields, from the design of AI systems and policies to the management of philanthropic and impact investing portfolios. The results are visualized as 'frontier' curves, providing insights into the complexities of bounded rationality.</p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Consider the following decision problem: You have $1,000 to give to charity. Conventional thinking would recommend giving the whole amount to the 'best' charity. That keeps things simple and is optimal if you can identify the best charity. Yet, you find yourself hesitating. You feel almost clueless about how to compare different impacts – from improving global health, to reducing animal suffering, to mitigating catastrophic risks from AI. You encounter a wide range of conflicting views while doing your research. And you realize that you can give to multiple charities. You've even noticed that your friends who care a lot about donating effectively often give to several charities. Is that a reasonable thing to do in the face of uncertainty?</p>
-<p>This scenario illustrates a broader challenge: how can we ensure that decision-makers, whether human or artificial, make optimal choices when their resources—time, expertise, and information—are constrained? While classical models often assume perfect rationality, real-world decision-makers always operate under significant constraints. They can't be rational in an idealistic sense, but they can be 'bounded rational' (e.g., Genewein et al., 2015) or 'resource rational' (e.g., Bhui, Lai, Gershman (2021), Lieder, Griffiths (2019)) - that is, following the optimal policy given the practical constraints that they face. For simplicity, I will use the term 'bounded rational' to refer to all related frameworks.</p>
-<p>This note presents a simple toy model of bounded-rational decision making to highlight three key concepts that are often overlooked:</p>
-<ol>
-<li><strong>Decision making as inference</strong>. The decision maker combines multiple imperfect models to <em>infer</em> the true state of the system, producing better results than relying on a single model.</li>
-<li><strong>Rational Uncertainty Aversion</strong>. The more volatile the potential outcomes, the more the decision maker will tend to underperform what they would achieve in ideal conditions. This can make it rational for them to prefer less risky, less ambiguous options and to diversify.</li>
-<li><strong>Frontier Curves</strong>. The results are visualized as curves that show how different strategies trade off expected outcomes against risk and other factors—similar to the efficient frontier used in finance.  These curves are a powerful tool to make the results of different models more transparent.</li>
-</ol>
-<p>Given the rapid advances in AI and the increasing complexity of global challenges, addressing bounded rationality and its implications is more urgent than ever. These concepts are important because:</p>
+<p><strong>TL;DR</strong>: This note's toy model shows how uncertainty aversion can be rational and maximize expected utility for bounded rational agents. This underappreciated possibility has significant implications for fields including AI, economics and philosophy.</p>
+<p><strong>Summary</strong>: Bounded rationality - the idea that our decision-making is constrained by limited information and processing power - is often overlooked in the idealized models that dominate various fields. This research note introduces an accessible toy model of bounded rationality that is designed to be widely applicable, highlighting several underexplored insights:</p>
 <ul>
-<li>The mental models we walk around with can influence everything we do from how we engage with others about policy to how we design technical AI systems. 'Inference' models where it is best to combine multiple points of view can serve as powerful reminders of the importance of open-mindedness in these times of increasing polarization and conflict. Yet, despite their intuitive appeal, such models are not the norm. The dominant paradigm is more for different models to compete with each other to be the one that makes the decision, without any real mixing of models occurring.</li>
-<li>The potential for uncertainty aversion to be rational has implications for a wide range of issues, from perennial ones like how much to give to charity to urgent ones like AI alignment. Yet, it has been rarely, if ever, explored.</li>
-<li>Much of the related literature often lacks clear visualizations, like the 'frontier' curves, even though this is important to ensure effective communication to an interdisciplinary audience.</li>
+<li>Rational agents should seek out different, independent sources of information to reduce their uncertainty, and bounded rationality amplifies the benefits of doing this.</li>
+<li>Under certain forms of bounded rationality, risk and ambiguity aversion can actually maximize expected value.</li>
+<li>These insights can all be elegantly visualized using 'frontier curves'.</li>
 </ul>
-<p>This note is not a final paper but an invitation to researchers from various disciplines to collaborate in exploring these important concepts. The goal of the note is to demonstrate the importance of these concepts in a simplified setting that can be adapted to a range of fields in the future, including philosophy and economics. By doing so, this note aims to spark further exploration and collaboration among researchers in AI, economics, philosophy, and related fields. I am actively seeking collaborators who are interested in building on this work to formalize, extend, or adapt it to their specific areas of expertise.</p>
-<p>The structure of this note is as follows. First, the basic inference setup of the toy model is introduced. We then explore how the results of bounded rational inference can be visualized using frontier curves. Next, we see how rational uncertainty aversion can emerge from constraints on the decision makers estimation abilities. Finally, we discuss the implications of these findings for various fields and suggest directions for future research.</p>
+<p>These insights have important implications for topics including capabilities versus safety trade-offs in AI, moral uncertainty in philosophy, diversification in philanthropy, and robustness in economics. By bridging the gap between idealized models and practical realities, this note aims to encourage more nuanced approaches to complex problems in these fields and beyond.</p>
+<p>I welcome feedback and am open to collaborations to further develop these ideas.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Consider the following decision problem: You have $1,000 to give to charity. Conventional thinking would recommend giving the whole amount to the 'best' charity. This simplifies the decision and is optimal when the best charity can be clearly identified. Yet, you find yourself hesitating. You feel almost clueless about how to compare different impacts – from improving global health to reducing animal suffering to mitigating catastrophic risks from AI. You encounter a wide range of conflicting views while doing your research. You also observe that some charities are high-risk bets that could turn out to be hugely important while others seem like much safer bets. This brings up many questions: should you be pessimistic and lean towards low-risk opportunities? Or be optimistic about upside of the high-risk ones? Should you spread your donations across two or more charities?</p>
+<p>This scenario illustrates a broader challenge: how can decision-makers, whether human or artificial, make optimal choices when their resources—time, information and computing power—are constrained? While classical models often assume perfect rationality, real-world decision-makers always operate under significant constraints. It can't be rational in an idealistic sense, but it can be 'bounded rational' (e.g., Genewein et al., 2015) or 'resource rational' (e.g., Bhui, Lai, and Gershman (2021); Lieder and Griffiths (2019)) - that is, following the optimal policy given the practical constraints that they face. For simplicity, I will use the term 'bounded rational' to refer to all related frameworks.</p>
+<p>Bounded rationality and related frameworks cover a huge space that crosses many fields and has been around for a long time. Simon (1955) is often cited as one of the first relevant writings. Bounded-rational models are generally harder to solve than normal models. Yet, exciting developments in cognitive science and AI are starting to offer tractable models for optimal agent behavior under realistic constraints. This note offers a taste for those unfamiliar with the concept and, hopefully, a novel perspective for experts.</p>
+<p>This note presents a simple toy model of bounded rational decision-making to highlight three key concepts that are often overlooked:</p>
+<ol>
+<li><strong>Decision-making as inference</strong>. The decision-maker in the model combines multiple imperfect signals to <em>infer</em> the true state of their environment, producing better results than if they relied on a single signal.</li>
+<li><strong>Rational Uncertainty Aversion</strong>. The more volatile the potential outcomes, the more a bounded-rational decision-maker will tend to underperform compared to ideal conditions. This can make it rational for them to prefer less risky, less ambiguous options and to diversify. Even if it would be rational for them to ignore uncertainty under ideal rationality (e.g., because their utility function is linear so 'risk-neutral').</li>
+<li><strong>Frontier Curves</strong>. The results are visualized as curves that show how different strategies trade off expected outcomes against risk and other factors—similar to the 'efficient frontier' used in finance.  These curves are a powerful tool to make the results of different models more transparent.</li>
+</ol>
+<p>As AI rapidly advances and global challenges become increasingly complex, understanding bounded rationality and its implications is more crucial than ever. These concepts are important because:</p>
+<ul>
+<li>The mental models we use influence everything from policy discussions to AI system design. 'Inference' models, where it is best to combine multiple points of view, can serve as powerful reminders of the importance of open-mindedness in these times of increasing polarization and conflict. Yet, in many areas such models aren’t the norm. The dominant paradigm is more for different models to compete with each other to be the one that makes the decision, without any real mixing of models occurring.</li>
+<li>The potential for uncertainty aversion to be rational affects everything from philathropy to AI alignment. Yet, the main versions of it in this note have been rarely, if ever, explored.<ul>
+<li>Rational uncertainty aversion is nuanced. It pushes against both extremes of fanatical bets and vague 'do no harm'/precautionary principle dogmas that themselves cause harm by killing innovation.</li>
+</ul>
+</li>
+<li>Much of the related literature lacks clear visualizations (like the frontier curves), despite their importance for effective communication.</li>
+</ul>
+<p>In AI, philosophy, economics, and other fields, there's a persistent gap between practical results and theoretical understanding of why those practices work. This gap is particularly evident with uncertainty aversion, which is often either presumed or ignored entirely. It is important to investigate when and why uncertainty aversion is a reasonable assumption.</p>
+<p>This note is not a final paper but an invitation to researchers from various disciplines to collaborate in exploring these important concepts. The goal of the note is to demonstrate the importance of these concepts in a simplified setting that can be adapted to a range of fields in the future, including philosophy and economics. By doing so, this note aims to spark further exploration and collaboration among researchers in AI, economics, philosophy, and related fields. I am actively seeking collaborators who are interested in building on these ideas to formalize, extend, or adapt them to their areas of expertise.</p>
+<h3 id="Structure-of-this-note-and-of-uncertainty-aversion">Structure of this note and of uncertainty aversion<a class="anchor-link" href="#Structure-of-this-note-and-of-uncertainty-aversion">&#182;</a></h3><p>We will see that the toy model can illustrate four different types of uncertainty aversion:</p>
+<ul>
+<li><strong>Noise aversion</strong>. Where the agent prefers options with less noisy information.</li>
+<li><strong>Opportunity-level risk aversion</strong>. Where the agent prefers opportunities with less volatile outcomes when choosing between two opportunities.</li>
+<li><strong>Ambiguity aversion</strong> (or aversion to Knightian uncertainty, epistemic uncertainty, model uncertainty). Where the agent prefers options for which they have greater confidence in their probability model, all else equal.</li>
+<li><strong>Policy-level risk aversion</strong>. Where the agent prefers policies that produce less volatile results given the available mix of opportunities.</li>
+</ul>
+<p>The structure of this note is as follows:</p>
+<ol>
+<li><strong>Inference setup</strong>. Introduces the basic setup of the toy model.<ul>
+<li>1.1 presents the frontier curves for this setup, to show that even with ideal rationality noise aversion is rational.</li>
+</ul>
+</li>
+<li><strong>Bounded rational inference I</strong>. Introduces the popular form of 'information-theoretic' bounded rationality. This increases noise aversion but doesn't lead to the other types of uncertainty aversion.</li>
+<li><strong>Bounded rational inference II</strong>. Introduce another bounded rationality constraint.<ul>
+<li>3.1-3.3. Show how this generates rational opportunity-level risk aversion, ambiguity aversion, and policy-level risk aversion.</li>
+</ul>
+</li>
+<li><strong>Connections to and implications for different fields</strong>.</li>
+<li><strong>Research ideas and questions</strong>.</li>
+<li><strong>Conclusion</strong>.</li>
+</ol>
+<p>The code, a brief technical explanation, and references are at the end of the note.</p>
 
 </div>
 </div>
@@ -15261,19 +15296,50 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Basic-Inference-Setup">Basic Inference Setup<a class="anchor-link" href="#Basic-Inference-Setup">&#182;</a></h2><p>The setup, similar to Buchak (2023), is that a person has committed to donate a total of $1,000 to two charities:</p>
-<ul>
-<li>Charity A - A benchmark charity that produces $1$ unit of impact per dollar.</li>
-<li>Charity B - An alternative charity that produces either $s=0$ or $s=v &gt; 1$ units of impact per dollar, where $v$ is a known, fixed parameter.</li>
-</ul>
-<p>They can chose the fraction $a$ to donate to charity B in increments of one-tenth. For example, if they choose $a=0.7$ and B is in state $s=2$, then the impact per dollar of their donation will be $0.3*1+0.7*2=1.7$.</p>
-<p>Without additional information, the probability of state $s=v$ is such that the expected impact of both charities is equal to $1$. This means that higher values of $v$ correspond to lower upside probabilities for charity B, making $v$ a measure of the associated risk level.</p>
-<p>To inform their decision, the donor has access to two analysts who provide different observations about charity B's state:</p>
+<h2 id="1.-Inference-setup">1. Inference setup<a class="anchor-link" href="#1.-Inference-setup">&#182;</a></h2><p>The setup is designed to align with philosophical and economic thought experiments - for example it is similar to Buchak (2023). A 'donor' agent has decided to donate $1,000 to charity. Their default option is Opportunity A - a benchmark charity that produces $1$ unit of impact per dollar.</p>
+<p>They have also asked their friend to recommend a risky Opportunity B that produces either $s=0$ or $s=v &gt; 1$ units of impact per dollar, where $v$ is a 'risk level' that the agent specifies to help narrow down the recommendation. For example, asking for a low $v$ opportunity might mean seeking charities backed by extensive empirical evidence, while asking for a high $v$ opportunity corresponds to wanting to see a new, 'startup' charity.</p>
+<p>They choose the fraction $a$ to donate to Opportunity B in increments of 0.1, with $1000*(1-a)$ going to Opportunity A. For example, if they choose $a=0.7$ and B is in state $s=2$, then the impact per dollar of their donation will be $0.3*1+0.7*2=1.7$. Figure 1 shows the impact per dollar for the different state and action pairs for $v=2$.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="text-align: center;">     
+    <img src="Images/U_mat.png" alt="Sample Image" width="400"
+            style="margin-top: -22px;"/>     
+    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 1: The impact per dollar for each action and state with v=2. </figcaption> 
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The setup is 'fair' in that, without additional information, the probability of each state is such that both charities have an expected impact equal to 1. This means that higher values of $v$ correspond to lower upside probabilities for Opportunity B.</p>
+<p>The goal of the agent is to maximize their impact per dollar. The agent needs to:</p>
+<ol>
+<li>Choose $v$.</li>
+<li>Receive and review analyses of Opportunity B to 'infer' the probability B is in either state.</li>
+<li>Choose $a$.</li>
+</ol>
+<p>To inform their decision, the agent has access to two analysts who provide different observations about Opportunity B's state:</p>
 <ul>
 <li>One provides a quantitative score (0, 1, or 10)</li>
 <li>The other provides a qualitative rating (x, y, or z)</li>
 </ul>
-<p>The donor has a probabilistic model for the relationship between observations and states. For each pair of observations, they can estimate the probability of each state and use this to calculate the expected impact of each action across both possible states. This approach allows them to combine observations from the analysts even if they aren't easily comparable (i.e., quantitative and qualitative).</p>
+<p>The agent has a probabilistic model for the relationship between observations and states. They have a prior belief about the likelihood of each state and about the likelihood of each observation given each state. The latter beliefs can be combined into conditional probabilities for the observation pairs given each state as in Figure 1 (left). They can invert this, using Bayes' theorem, to get the probability of each state given each observation pair as in Figure 1 (right). These probabilities can then be used to calculate the expected impact of each action given an observation pair. This approach allows them to combine observations from the analysts even if they aren't easily comparable (i.e., quantitative and qualitative, non-commensurable).</p>
 <p>In this note we consider several observation scenarios:</p>
 <table>
 <thead>
@@ -15287,61 +15353,31 @@ jonathan@total-portfolio.org</p>
 <tr>
   <td>0</td>
   <td>Perfect information</td>
-  <td>At least one analyst identifies the state with 99% accuracy.</td>
+  <td>At least one analyst identifies the state with 99+% accuracy</td>
 </tr>
 <tr>
   <td>1</td>
   <td>Good, independent observations</td>
-  <td>Both analysts have a 'good' ability to identify the state and are otherwise uncorrelated.</td>
+  <td>Both analysts have a 'good' ability (65+%) to identify the state and are otherwise uncorrelated</td>
 </tr>
 <tr>
   <td>2</td>
   <td>Correlated observations</td>
-  <td>Same as Scenario 1 but the analysts views are partially correlated (e.g., using similar methods and evidence).</td>
+  <td>Same as Scenario 1 but the analysts views are partially correlated (e.g., using similar methods and evidence)</td>
 </tr>
 <tr>
   <td>3</td>
   <td>Only one good observation</td>
-  <td>One analyst is good, the other is clueless; or equivalently, both analysts are 100% correlated.</td>
+  <td>One analyst is good, the other is clueless; or equivalently, both analysts are 100% correlated</td>
 </tr>
 <tr>
   <td>4</td>
   <td>Relatively clueless</td>
-  <td>One analyst is clueless, the other offers only a slight edge in identifying the true state.</td>
+  <td>One analyst is clueless, the other offers only a slight edge in identifying the true state</td>
 </tr>
 </tbody>
 </table>
-<p>Figure 1 illustrates the donor's model for the observations given the states for the 'Good, independent observations' scenario. Similar charts for other scenarios can be generated using the code provided at the end of this notebook.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div style="text-align: center;">
-    <img src="Images/pogs GoodIndependent.png" alt="Sample Image" width="500"/>
-      <figcaption style="font-style: italic;  text-align: left;  margin-top: 10px;">Figure 1: The donor's beliefs about the probabilities of the observations given the states for the "Good, independent observations" scenario (with v=100).</figcaption>
-</div>
-
-
-</div>
-</div>
-</div>
-</div>
-<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Bounded-Rational-Inference">Bounded Rational Inference<a class="anchor-link" href="#Bounded-Rational-Inference">&#182;</a></h2><p>The donor in our setup needs to choose their action $a$ given the observations $o$. Generalizing, we can think of their policy as the probability $p(a|o)$ that they take action $a$ given observation $o$. In our simple, linear toy model, for a given observation $o$, an ideal rational agent will always have $p(a*|o)=1$ for some action $a*$ and the rest of the probabilities as zero. A key insight of bounded rationality is that such policies are more 'complex' in the sense of require more computations to implement than randomly choosing an action.</p>
-<p>Implementing a policy for the toy model may seem trivial, but in general an ideal policy requires more computational 'bandwidth'. It requires storing the policy in memory, capturing the observations, looking up the corresponding action and executing it. Whereas a random strategy just requires randomly choosing an action and executing it.</p>
-<p>Thus, one of the most popular and promising models for bounded rationality adds a cost for policy complexity (see, for example, Genewein et al. (2015) and  Lai and Gershman (2024)). Figure 2 shows the optimal policy for different levels of complexity costs. It illustrates how higher complexity costs increase the randomness of the optimal policy, thereby decreasing its expected impact. This leads us to explore the concept of frontier curves in the next section, as a way to visualize the trade-off between complexity and expected impact.</p>
+<p>Figure 1 illustrates the agent's model for the observations given the states for the 'Good, independent observations' scenario. Similar charts for other scenarios can be generated using the code provided at the end of this notebook.</p>
 
 </div>
 </div>
@@ -15355,11 +15391,11 @@ jonathan@total-portfolio.org</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="display: flex; flex-direction: column; align-items: center; max-width: 100%; margin: 0 auto;">
     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
-        <img src="Images/p(a|o) scenario 1 beta _1.png" alt="Sample Image 1" style="max-width: 45%; height: auto;"/>
-        <img src="Images/p(a|o) scenario 1 beta 1000.png" alt="Sample Image 2" style="max-width: 45%; height: auto;"/>
+        <img src="Images/pogs GoodIndependent.png" style="max-width: 45%; height: auto;"/>
+        <img src="Images/psgo GoodIndependent.png" style="max-width: 45%; height: auto;"/>
     </div>
     <figcaption style="font-style: italic;  text-align: left; max-width: 90%;">
-        Figure 2: Optimal action probabilities given each observations for the "Good, independent observations" scenario with low complexity/high costs (left) and high complexity/low costs (right). The low complexity policy is much more random. The high complexity policy still includes some randomness because for some observations the expected values of the actions are very similar.
+        Figure 2: The left chart shows the agent's beliefs about the probabilities of the observations given the states for the 'Good, independent observations' scenario (with v=2). That is, their prior beliefs about these conditional probabilities. Combined with their beliefs about the probability of each state, using Bayes' theorem they can calculate the probability of each state given each observation, as shown in the right chart. The probabilities for each cell are indicated in percentage points.
     </figcaption>
 </div>
 
@@ -15374,14 +15410,17 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Frontier-Curves">Frontier Curves<a class="anchor-link" href="#Frontier-Curves">&#182;</a></h2><p>A natural way to present the results of information-theoretic bounded rationality models is with complexity-utility frontier curves. These curves show the 'frontier' of the minimum complexity required to achieve a certain level of expected impact or equivalently, the maximum achievable expected impact given a level of complexity. This is similar to the <a href="https://en.wikipedia.org/wiki/Efficient_frontier">'Efficient Frontier'</a> volatility-return curve in finance and the <a href="https://impactfrontiers.org/online-curriculum/the-efficient-impact-frontier/">'Efficient Impact Frontier'</a> impact-return curve in impact investing. These visualizations are a powerful way to understand the implications of different forms of bounded rationality.</p>
-<p>Figure 3 presents these frontier curves for the toy model. It illustrates that:</p>
+<h3 id="1.1-'Noise'-aversion">1.1 'Noise' aversion<a class="anchor-link" href="#1.1-'Noise'-aversion">&#182;</a></h3><p>A natural way to present the results of bounded rationality models is with frontier curves that show the 'frontier' of the highest possible expected value (for utility, impact or whatever fits the context) given a fixed value for another model statistics or parameter. This note focuses on expected value-volatility frontier curves that compare the expected impact and volatility (square-root of the variance) of the impact a policy is expected to produce.</p>
+<p>This is similar to the <a href="https://en.wikipedia.org/wiki/Efficient_frontier">'Efficient Frontier'</a> return-volatility curve in finance and the <a href="https://impactfrontiers.org/online-curriculum/the-efficient-impact-frontier/">'Efficient Impact Frontier'</a> return-impact curve in impact investing. These visualizations are a powerful way to understand the implications of different forms of bounded rationality.</p>
+<p>Figure 3 presents these frontier curves for the toy model just based on the inference setup above (with no bounded rationality). The curves are produced by allowing the agent's chosen $v$ to vary from 1 to 100. Increasing $v$ naturally increases the volatility of the agent's policy.</p>
+<p>The figure illustrates that:</p>
 <ul>
-<li>The optimal Expected Impact strictly increases as Policy Complexity is allowed to increase.</li>
-<li>Higher expected impact can be consistently obtained in the scenarios where the donor has good, alternative observations to combine ('Good, independent observations' and 'Correlated observations').</li>
-<li>The value of combining different views together is significantly reduced when those views are not independent ('Correlated observations').</li>
+<li>Better observation scenarios produce better results.</li>
+<li>Having two good analysts is better than one as long as they have independent opinions.</li>
+<li>Expected value is increasing in volatility, so the agent should not be risk averse and should choose $v$ as high as possible.</li>
 </ul>
-<p>These results show how a basic model of bounded rational inference can work. However, this form of bounded rationality does not generate uncertainty aversion. Rather it just forces less complex policies to be more random, which may or may not result in behavior that looks like uncertainty aversion. So, in the next section we turn the complexity cost all but off and explore a modification to the model that generates uncertainty aversion.</p>
+<p>So, the inference setup means that opportunities with more certain observations will be preferred. That is, the agent should rationally exhibit 'noise' aversion. But, this is just a natural result of being Bayesian (as, for example, in the <a href="https://jimsmith.host.dartmouth.edu/wp-content/uploads/2022/04/The_Optimizers_Curse.pdf">'optimizer's curse'</a>). It is just a natural preference for better observations.</p>
+<p>In the next sections we will see if adding bounded rationality can cause the agent to become uncertainty averse in their preferences regarding $v$ and $a$.</p>
 
 </div>
 </div>
@@ -15393,9 +15432,10 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div style="text-align: center;">
-    <img src="Images/beta_frontiers.png" alt="Sample Image" width="400"/>
-    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 3: Expected impact-complexity frontier curves for each observation scenario. Expected Impact is the expected impact per dollar donated and Policy Complexity is the '<a href="https://en.wikipedia.org/wiki/Mutual_information" target="_blank">mutual information</a>' between the actions and observations for the policy.</figcaption>
+<div style="text-align: center;">     
+    <img src="Images/EV Frontier low complexity cost.png" alt="Sample Image" width="400"
+            style="margin-top: -35px;"/>     
+    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 3: Frontier curves for each observation scenario. Expected Value and Volatility are, respectively, the expected value and the square root of the variance of the impact per dollar donated. This demonstrates 'Observation-uncertainty aversion' as for a given Volatility the agent will always prefer the higher quality observation scenario. However, this does not change that the underlying setup means that for a given observation scenario an expected-value maximizing agent will always prefer higher Volatility.</figcaption> 
 </div>
 
 
@@ -15409,12 +15449,94 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Rational-Uncertainty-Aversion:-When-Playing-It-Safe-Pays-Off">Rational Uncertainty Aversion: When Playing It Safe Pays Off<a class="anchor-link" href="#Rational-Uncertainty-Aversion:-When-Playing-It-Safe-Pays-Off">&#182;</a></h2><p>Bounded rationality models have largely focused on limitations to metrics like 'Policy Complexity'. This overlooks a crucial consideration for how the optimal policy is computed in practice: estimation error in the expected value of each action. While this is a practical issue in machine learning, exemplified by systems like DeepMind's Go-playing AI which can only sample from a fraction of the possible games, it has received surprisingly little attention in the broader bounded rationality literature. By incorporating estimation error into bounded rationality models, we can better reflect the realities faced by both artificial and human decision-makers.</p>
-<p>We add this issue to the toy model by supposing that the donor can't directly compute the expected impact of each action. Instead, they must estimate it by randomly sampling the possible outcomes and taking an average across the samples as in Lieder, Hsu &amp; Griffiths (2014). This may seem artificial in the context of our toy model, but it would be reality in more complex scenarios with many possible states and actions.</p>
-<p>Policies that are optimized based on noisy expected impact estimates will be strictly worse than the true optimal policy. If the performance gap increases significantly in riskier scenarios, then low-risk scenarios could offer higher expected impact in practice even if higher-risk scenarios would offer much higher expected impact under ideal conditions.</p>
-<p>To test the results we restrict the donor to 2, 8, 32 or 128 samples for their estimates. The following subsections illustrate how these sampling constraints can generate different forms of uncertainty aversion. For more detail, see the brief technical explanation at the bottom of this note.</p>
-<h3 id="Aversion-to-riskier-bets">Aversion to riskier bets<a class="anchor-link" href="#Aversion-to-riskier-bets">&#182;</a></h3><p>Figure 4 presents frontier curves that show the expected impact for different values of $v$ up to $v=100$. With perfect information or a large number of samples the donor should prefer $v=100$ as they can achieve expected impact of $2$. But, if restricted to only $2$ samples the performance in the non-perfect scenarios (1 to 4) degrades significantly for higher values of $v$ - so much so that it is optimal for the donor to prefer lower risk levels around $v=10$. For most of the  scenarios the optimal risk level increases significantly as the number of samples increases. However, it remains quite low in all cases for the 'Relatively clueless' scenario.</p>
-<p>These results illustrate that it is possible for this sampling constraint to make it optimal for the donor to prefer lower values of $v$, despite higher values of $v$ offering more upside under ideal conditions. This is a particular form of risk aversion - the next two subsections explore other features that result from the sampling restriction.</p>
+<h2 id="2.-Bounded-rational-inference-I">2. Bounded rational inference I<a class="anchor-link" href="#2.-Bounded-rational-inference-I">&#182;</a></h2><p>The agent in our setup needs to choose their action $a$ given the observations $o$. Generalizing, we can think of their policy as the probability $p(a|o)$ that they take action $a$ given observation $o$. In our simple, linear toy model, for a given observation $o$, an ideal rational agent will always have $p(a^*|o)=1$ for one best action $a^*$ and the rest of the probabilities as zero. A key insight of bounded rationality is that such policies are more 'complex' in the sense of require more computations to implement than randomly choosing an action.</p>
+<p>Implementing a policy for the toy model may seem trivial, but in general an ideal policy requires more computational 'bandwidth'. It requires storing the policy in memory, capturing the observations, looking up the corresponding action and executing it. Whereas a random strategy just requires randomly choosing an action and executing it. This has deep connections to concepts like entropy in information theory and physics that we won't get into here.</p>
+<p>So, one of the most popular and promising class of models for bounded rationality are 'information theoretic' models that subtract a complexity cost from the agent's utility (see, for example, Genewein et al. (2015) and  Lai and Gershman (2024)). Figure 4 shows the optimal policy for different 'prices of complexity'. It is calculated numerically using an iterative algorithm to find the policy that maximizes the expected impact minus the expected complexity cost (see the 'Technical notes' section at the bottom for more). The figure illustrates that when the price of complexity is high, the optimal policy is more random. There is still some randomness even with a low price of complexity because for some observations the expected values of the different actions are very similar.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="display: flex; flex-direction: column; align-items: center; max-width: 100%; margin: 0 auto;">
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+        <img src="Images/p(a|o) scenario 1 high complexity cost.png" style="max-width: 45%; height: auto;"/>
+        <img src="Images/p(a|o) scenario 1 low complexity cost.png" style="max-width: 45%; height: auto;"/>
+    </div>
+    <figcaption style="font-style: italic;  text-align: left; max-width: 90%;">
+        Figure 4: Optimal action probabilities given each observation for the "Good, independent observations" scenario with v=2 with a high price of complexity (left) and low price of complexity (right). The policy given a high price of complexity costs is much more random (i.e., less complex). The policy given a low price of complexity still includes some randomness because for some observations the expected values of the actions are very similar.
+    </figcaption>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.1-Strengthening-'observation-noise'-aversion">2.1 Strengthening 'observation-noise' aversion<a class="anchor-link" href="#2.1-Strengthening-'observation-noise'-aversion">&#182;</a></h3><p>Figure 5 shows that introducing information-theoretic bounded rationally in this way just shifts down the frontier curves and that the shift is greater for the weaker observation scenarios. This means this form of bounded rationality amplifies the agent's uncertainty aversion: an agent with a high price of complexity should be willing to pay more to improve their observation scenario (if possible). But, again, to be precise this is still 'noise' aversion not risk or ambiguity aversion. So, in the next section we turn the price of complexity all but off and explore an alternative form of bounded rationality that generates other forms of uncertainty aversion.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="display: flex; flex-direction: column; align-items: center; max-width: 100%; margin: 0 auto;">
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+        <img src="Images/EV Frontier low complexity cost.png" style="max-width: 45%; height: auto;"/>
+        <img src="Images/EV Frontier high complexity cost.png" style="max-width: 45%; height: auto;"/>
+    </div>
+    <figcaption style="font-style: italic;  text-align: left; max-width: 90%;">
+        Figure 5: This figure compares the frontier curves from Figure 2 for a low price of complexity cost (left) and the frontier curves with a high price of complexity (right). The shape of the curves is the same. But, the curves for the high-price case are all below the respective ones for the low-price case and much more so for the weaker observation scenarios. This indicates that more bounded rational agents (with a high price of complexity) should be willing to pay more to upgrade their observations.
+    </figcaption>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="3.-Bounded-rational-inference-II">3. Bounded rational inference II<a class="anchor-link" href="#3.-Bounded-rational-inference-II">&#182;</a></h2><p>Modelling bounded rationality can be a bit like playing 'whack-a-mole' because when you once try to constrain one implicit assumption in conventional models you realize there is yet another one to pin down (or they your constraint comes with its own implicit assumptions). An implicit assumption we've overlooked so far is that the agent can compute the expected value of each action without error. Error in such estimates is a practical issue in machine learning, exemplified by systems like DeepMind's Go-playing AI which can only sample from a fraction of the possible games. But this practical point has received surprisingly little attention in the broader bounded rationality literature. By incorporating estimation error into bounded rationality models, we can better reflect the realities faced by both artificial and human decision-makers.</p>
+<p>We can add this issue to the toy model by supposing that the agent can't directly compute the expected impact of each action. Instead, they must estimate it by randomly sampling the possible outcomes and taking an average across the samples as in Lieder, Hsu and Griffiths (2014). This may not seem to be an issue in the context of our toy model, but it would be reality in more complex scenarios with many possible states and actions.</p>
+<p>Policies that are optimized based on noisy estimates will be strictly worse than the true optimal policy (i.e., optimal policies like in Figure 4). Thus, even symmetric errors in the estimation don't cancel out when it comes to the expected value of the policies derived given those errors. This results in a performance gap between the expected value of the true optimal policy and the average policy with estimation error. If the performance gap increases significantly in riskier scenarios, then low-risk scenarios could offer higher expected value in practice even if higher-risk scenarios would offer much higher expected value under ideal conditions.</p>
+<p>To test the results we restrict the agent to 2, 8, 32 or 128 samples for their estimates. The number of samples can be thought of as a proxy for how well the agent is able to approximate the optimal policy (i.e., as in Figure 4). Or, in other words, as a proxy for how many 'thought cycles' they are able to apply to it.</p>
+<p>The following subsections illustrate how these sampling constraints can generate different forms of uncertainty aversion. For more detail, see the brief technical explanation at the bottom of this note.</p>
+<p>Note that in line with this all being a game of 'whack-a-mole' these results are just a claim about this specific toy model and what happens with the assumptions we have made. It could be that there is a smart way for the agent to get around the constraints and assumptions we've put in place here. And then the assumptions about how much of that smartness makes sense to allow would have to be examined. And so on.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.1-'Opportunity-level'-risk-aversion">3.1 'Opportunity-level' risk aversion<a class="anchor-link" href="#3.1-'Opportunity-level'-risk-aversion">&#182;</a></h3><p>Figure 4 presents frontier curves generated by varying $v$ from $1$ to $100$. With perfect information or a large number of samples the agent should prefer higher volatility (i.e., $v=100$) as they can achieve expected impact of almost $2$. But, if restricted to only $2$ samples the performance in the non-perfect scenarios (1 to 4) degrades significantly for higher volatilites - so much so that it is optimal for the agent to prefer the lower risk levels generated by $v$ around 5 to 15. For most of the scenarios the optimal risk level increases significantly as the number of samples increases. However, it remains quite low in all cases for the 'Relatively clueless' scenario.</p>
+<p>In other words, Figure 4 illustrates a whole range of behaviors. If you are in a situation where you are confident in your model and have decent information (red or better) then you should be looking for more risky opportunities. But, if you have a lot of model uncertainty or you feel 'clueless' then you should stick to relatively safe opportunities.</p>
+<p>These results illustrate that it is possible for this sampling constraint to make it optimal for the agent to prefer lower values of $v$, despite higher values of $v$ offering more upside under ideal conditions. This is a particular form of risk aversion - we might call it 'opportunity-level' risk aversion. The next two subsections explore other features that result from the sampling restriction.</p>
 
 </div>
 </div>
@@ -15428,7 +15550,7 @@ jonathan@total-portfolio.org</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="text-align: center;">
     <img src="Images/v_frontiers.png" alt="Sample Image" width="700"/>
-    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 4: Expected impact-risk level frontier curves for each observation scenario and number of samples. The Expected Impact values are averages across many simulations with two standard deviations of sampling error represented by the shaded areas.</figcaption>
+    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 6: Expected impact-risk level frontier curves for each observation scenario and number of samples. The Expected Impact values are averages across many simulations with two standard deviations of sampling error represented by the shaded areas.</figcaption>
 </div>
 
 
@@ -15442,8 +15564,8 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="'Ambiguity'-Aversion">'Ambiguity' Aversion<a class="anchor-link" href="#'Ambiguity'-Aversion">&#182;</a></h3><p>Uncertainty is often split into two types: risk, where the probabilities of different outcomes are known, and ambiguity (or model uncertainty) where the probabilities themselves are uncertain. The latter isn't explicitly a part of the toy model. However, the sample restrictions can be viewed as producing a similar, arguably equivalent, effect.</p>
-<p>Figure 5 reorganizes the results of Figure 4 to make it easy to confirm that as the number of samples increases the expected impact increases, for all values of $v$. So, it is rational reason for the donor to prefer lower 'ambiguity' (higher sample) situations. Thus, the toy model generates both rational risk aversion (preference for smaller $v$) and rational ambiguity aversion (preference for situations that are equivalent to having more samples).</p>
+<h3 id="3.2-'Ambiguity'-aversion">3.2 'Ambiguity' aversion<a class="anchor-link" href="#3.2-'Ambiguity'-aversion">&#182;</a></h3><p>Ambiguity (or model uncertainty) is often presented as cases where the probabilities themselves are uncertain. This isn't explicitly a part of the toy model. However, the sample restrictions can be viewed as producing a similar, arguably equivalent, effect.</p>
+<p>Figure 5 reorganizes the results of Figure 4 to make it easy to confirm that as the number of samples increases the Expected Value increases, for all values of $v$. So, it is rational for the agent to prefer lower 'ambiguity' (higher sample) situations. Thus, the toy model generates both rational opportunity-level risk aversion (preference for smaller $v$) and rational ambiguity aversion (preference for situations that are equivalent to having more samples).</p>
 
 </div>
 </div>
@@ -15457,7 +15579,7 @@ jonathan@total-portfolio.org</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div style="text-align: center;">
     <img src="Images/v_frontiers_scenario groups.png" alt="Sample Image" width="700"/>
-    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 5: The frontier curves from Figure 4 grouped by observation scenario.</figcaption>
+    <figcaption style="font-style: italic;  text-align: left; margin-top: 10px;">Figure 7: The frontier curves from Figure 4 grouped by observation scenario. This demonstrates 'Ambiguity aversion' as for a given observation scenario and Volatility, the agent always prefers the higher sample case. This is different from risk aversion as moving to the higher sample case can increase the optimal Volatility level.</figcaption>
 </div>
 
 
@@ -15471,11 +15593,11 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Diversification-and-Explicit-Risk-Aversion">Diversification and Explicit Risk Aversion<a class="anchor-link" href="#Diversification-and-Explicit-Risk-Aversion">&#182;</a></h3><p>While the model above generates uncertainty aversion it doesn't generate diversification. Except for some randomness due to the non-zero bandwidth cost, the agent's samples will either confirm to them that giving everything to A or B is the best policy.</p>
-<p>However, the strategy we've allowed the agent is admittedly a bit naive. With a bit more thought they might choose to explicitly, preemptively include risk aversion in their model so they underweight actions with more volatile impacts. This should steer them towards determining their policy based on actions that they have better estimates and mitigate some of the effect of their sampling constraint.</p>
-<p>Note that to get such a technique to work, we need to consider situations where the choice between A and B isn't so obvious given the observations. When B is either $s=v=100$ or $s=0$, it's almost always going to be clear that is it better or worse than B. We need to consider situations that are more close, so we'll consider $v=1.1$ and allow the donor 2 samples.</p>
-<p>The top chart in Figure 6 shows the frontier curve of expected impact versus impact volatility (the expected standard deviation of the realized impact given repeated trials). It demonstrates that in this case including a bit of preemptive risk aversion is rational in that it improves the expected impact.</p>
-<p>The bottom chart in Figure 6 shows for each of the expected impact maximizing points the percentage of time a 'mixed' action of 0.1-0.9 is taken. This shows that rational risk aversion results in diversification even in this binary situation with no inherent risk aversion in the agent's utility function.</p>
+<h3 id="3.3-'Policy-level'-risk-aversion-and-diversification">3.3 'Policy-level' risk aversion and diversification<a class="anchor-link" href="#3.3-'Policy-level'-risk-aversion-and-diversification">&#182;</a></h3><p>The model above generates uncertainty aversion but not diversification. Generally, the agent's samples will either confirm to them that giving everything to A or B is the best policy.</p>
+<p>However, the strategy we've allowed the agent is admittedly a bit naive. With a bit more thought they might choose to preemptively include risk aversion in their model so they underweight actions with more volatile impacts. This should steer them towards determining their policy based on actions that they have better estimates and mitigate some of the effect of their sampling constraint.</p>
+<p>Note that for risk aversion like this to have a chance of being optimal, we need to consider situations where the choice between A and B isn't so obvious given good observations. When B is either $s=v=100$ or $s=0$, it's almost always going to be clear that is it better or worse than B. We need to consider situations that are both close and uncertain, so we'll consider $v=1.1$ and allow the agent 2 samples.</p>
+<p>The top chart in Figure 6 shows the frontier curves when the agent's policy is determined by a biased model that subtracts, for each action given each observation, the condtional variance of the impact multiplied by a 'price of risk'. The results demonstrate that in this case using a non-zero price of risk is rational in that it improves the expected impact. This relates to the classic idea that biased solutions can have lower MSE. But the framing of this toy model offers  a fundamental reason for the standard assumption that lower MSE is better: with bounded rationality the policies with lower MSE can also be the policies with higher expected value.</p>
+<p>The bottom chart in Figure 6 shows for each of the expected impact maximizing points the percentage of time a 'mixed' action of 0.1 to 0.9 is taken. This shows that rational risk aversion results in diversification even in this binary situation with no inherent risk aversion in the agent's utility function.</p>
 
 </div>
 </div>
@@ -15490,7 +15612,7 @@ jonathan@total-portfolio.org</p>
 <div style="text-align: center; max-width: 700px; margin: 0 auto;">
     <img src="Images/g_frontiers.png" alt="Frontier Curves" style="width: 70%; margin-bottom: 10px;"/>
     <img src="Images/g_diversification bar.png" alt="Diversification Bar" style="width: 70%; margin-bottom: 20px;"/>
-    <figcaption style="font-style: italic; text-align: left; margin-top: 10px;">Figure 6: The top chart shows expected impact-volatility frontier curves for each observation scenario with v=1.1 and Samples=2. The curves are generated by increasing the donor's explicit risk aversion. The Expected Impact values are averages across many simulations with two standard deviations of sampling error represented by the shaded areas. The bottom chart compares the percentage of time a 'mixed' action, 0 < a < 1, is taken with zero risk aversion (left bars) and with the optimal level of risk aversion (right bars).</figcaption>
+    <figcaption style="font-style: italic; text-align: left; margin-top: 10px;">Figure 8: The top chart shows the frontier curves for each observation scenario with v=1.1 and Samples=2. The curves are generated by increasing the agent's 'price of risk'. The Expected Impact values are averages across many simulations with two standard deviations of sampling error represented by the shaded areas. The bottom chart compares the percentage of time a 'mixed' action, 0 < a < 1, is taken with zero price of risk (left bars) and with the optimal level of the price of risk (right bars).</figcaption>
 </div>
 
 
@@ -15504,52 +15626,57 @@ jonathan@total-portfolio.org</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Connections-To-and-Implications-For-Different-Fields">Connections To and Implications For Different Fields<a class="anchor-link" href="#Connections-To-and-Implications-For-Different-Fields">&#182;</a></h2><p>This section offers a selection of implications the toy model, and bounded rationality in general, have for different fields.</p>
+<h2 id="4.-Connections-to-and-implications-for-different-fields">4. Connections to and implications for different fields<a class="anchor-link" href="#4.-Connections-to-and-implications-for-different-fields">&#182;</a></h2><p>This section offers a selection of implications the toy model, and bounded rationality in general, have for different fields.</p>
 <h3 id="General">General<a class="anchor-link" href="#General">&#182;</a></h3><ul>
 <li><p><strong>Bottom-up paradigm</strong>: Research across related fields is dominated by a top-down paradigm of adding features to models based on heuristic reasoning and seeing what works to improve performance. This toy model, and 'bounded rationality' in general, suggests an alternative 'bottom-up' paradigm of first focusing on better defining the optimization problem including all its constraints. Solving the properly defined problem then naturally leads to optimal performance. In other words, better theory can lead to better models, and the better theory that may be needed is a better description of the practical constraints faced by decision-making agents.</p>
 </li>
 <li><p><strong>Uniting risk and ambiguity aversion</strong>: In the model the different forms of uncertainty aversion all come from the same source of estimation error. This highlights that the distinction between risk and ambiguity aversion may not be as clear as is often assumed in economics and philosophy.</p>
 </li>
-</ul>
-<h3 id="Philanthropy-and-Impact-Investing">Philanthropy and Impact Investing<a class="anchor-link" href="#Philanthropy-and-Impact-Investing">&#182;</a></h3><ul>
-<li><p><strong>Open-mindedness</strong>: The inference framing emphasizes the potential benefits of open-minded consideration of different perspectives, especially in challenging, complex decisions like those to do with impact on society.</p>
-</li>
-<li><p><strong>Preference for safer bets</strong>: The toy model doesn't rule out a 'hits-based' approach of making a lot of high-risk, high-reward bets. But the results do point out that in situations of greater uncertainty it can be rational to stick to safer bets.</p>
-</li>
-<li><p><strong>A fundamental reason for diversification</strong>: The model highlights estimation error as a fundamental reason for diversification, whether across charities, investments, strategies, causes, or time. This aligns with the fact that many philanthropic organizations diversify and goes beyond traditional  explanations like diminishing-returns to scale, reputation management, and combinatorial effects. The issue of estimation error applies to donors and investors of all sizes and it applies most strongly to more complex and controversial topics like how much to allocate to philanthropy versus impact investing.</p>
-</li>
 <li><p><strong>Frontier curves</strong>: The note highlights the value of visual tools like frontier curves for analyzing optimal policies.</p>
 </li>
 </ul>
-<h3 id="AI-Alignment">AI Alignment<a class="anchor-link" href="#AI-Alignment">&#182;</a></h3><ul>
-<li><p><strong>Potential for nuanced AGI behavior and alignment strategies</strong>: While not changing the potential for catastrophic risks from AI, the model suggests advanced AI systems might develop uncertainty aversion and open-mindedness, challenging simplistic views of AI as pure expected utility maximizers. Considering bounded rationality and uncertainty aversion could inform more nuanced AI alignment strategies that don't rely on assumptions of ideal rationality.</p>
+<h3 id="Philanthropy-and-impact-investing">Philanthropy and impact investing<a class="anchor-link" href="#Philanthropy-and-impact-investing">&#182;</a></h3><ul>
+<li><p><strong>Open-mindedness</strong>: The inference framing emphasizes the potential benefits of open-minded consideration of different perspectives, especially in challenging, complex decisions like those to do with impact on society.</p>
 </li>
-<li><p><strong>Potential capability-safety alignment</strong>: If it is optimal for AIs facing complex, highly uncertain situations to consider multiple perspectives and exhibit uncertainty aversion, this could mean that training AIs in a way that acknowledges they are also 'bounded rational' could be a win-win for capabilities and safety in complex situations.</p>
+<li><p><strong>Preference for safer bets</strong>: The toy model doesn't rule out a 'hits-based' approach of making multiple high-risk, high-reward bets. But the results do point out that in situations of greater uncertainty it can be rational to stick to safer bets.</p>
 </li>
-<li><p><strong>Generalized alignment</strong>: If some situations are so complex that both humans and AIs are more or less 'clueless' then a natural question to ask is why focus on AI alignment? It may be more productive to go one level of abstraction up ad focus on improving global coordination and robustness in general. This could look like developing coordination mechanisms (including AI training algorithms) that are explicitly aligned with bounded rational inference.</p>
+<li><p><strong>A fundamental reason for diversification</strong>: The model highlights estimation error as a fundamental reason for diversification, whether across charities, investments, strategies, causes, or time. This aligns with the fact that many philanthropic organizations diversify and goes beyond traditional  explanations like diminishing-returns to scale, reputation management, and combinatorial effects. The issue of estimation error applies to donors and investors of all sizes and it applies most strongly to more complex and controversial topics like how much to allocate to philanthropy versus impact investing.</p>
 </li>
 </ul>
-<h3 id="Moral-Philosophy">Moral Philosophy<a class="anchor-link" href="#Moral-Philosophy">&#182;</a></h3><ul>
-<li><p><strong>Morality as inference</strong>: The model suggests a framework of viewing existing moral theories as imperfect inferences of an ideal theory. The individual theories can then be combined to produce a better approximation of the ideal theory, and this combination need not require the theories to be commensurable. This offers a new perspective on moral uncertainty, potentially informing approaches like 'variance voting' and the 'moral parliament' (MacAskill, Bykvist &amp; Ord, 2020). For example, it suggests that the credences assigned to different moral theories in these existing approaches could be informed by Bayesian calculations based on rough models for how each theory approximates the ideal theory.</p>
+<h3 id="AI-alignment">AI alignment<a class="anchor-link" href="#AI-alignment">&#182;</a></h3><ul>
+<li><p><strong>Nuanced AGI behavior and alignment strategies</strong>: While not diminishing the potential for catastrophic risks from AI, this model suggests that advanced AI systems might develop uncertainty aversion and open-mindedness as rational responses to complex environments. This challenges simplistic views of AI as pure expected utility maximizers and could inform more nuanced AI alignment strategies.</p>
 </li>
-<li><p><strong>Fanaticism vs. caution</strong>: The model endogenously generates that in situations of cluelessness safe bets are preferred over high-risk, 'fanatical' bets, while the opposite can be true in situations that are closer to ideal.</p>
+<li><p><strong>Capability-safety alignment</strong>: If it's optimal for AIs facing complex, highly uncertain situations to consider multiple perspectives and exhibit uncertainty aversion, this could mean that training AIs to acknowledge their own bounded rationality could be a win-win for capabilities and safety. This insight could be particularly relevant for AI systems designed to operate in real-world environments with irreducible complexity, such as self-driving cars navigating through unpredictable, heavy-tailed environments.</p>
 </li>
-<li><p><strong>Inseparability of empirical uncertainty</strong>: The model highlights that adjustments for empirical uncertainty cannot necessarily be treated separately from moral uncertainty, as the optimal policy depends on both analyst models and under bounded rationality this dependence is complex.</p>
+<li><p><strong>Generalized alignment</strong>: In situations so complex that both humans and AIs are more or less 'clueless', it may be more productive to focus on improving global coordination and robustness in general, rather than solely on AI alignment. This could involve developing coordination mechanisms (including AI training algorithms) that are explicitly aligned with bounded rational inference. Such an approach acknowledges that unlimited computation doesn't guarantee unbounded rationality, as logical inconsistencies often arise from the nature of problems themselves, not just from a lack of resources.</p>
 </li>
-<li><p><strong>Challenging the focus on ideals</strong>: This model challenges moral theories that assume unlimited reasoning capabilities and extreme certainty.</p>
+<li><p><strong>Implications for AI safety research</strong>: This model highlights the importance of considering bounded rationality in AI safety research. It suggests that safe and capable AI systems might need to be designed with the ability to handle uncertainty, combine multiple perspectives, and make robust decisions under constraints. This could lead to new research directions in AI safety, focusing on how to implement these bounded rationality principles in AI architectures and training processes.</p>
 </li>
-<li><p><strong>Computational Moral Philosophy</strong>: It shows that it is possible to integrate insights from neuroscience and machine learning into a philosophically relevant thought experiment that can be analyzed on a computer.
-Offers mathematical version of moral uncertainty that complements existing more wordy work on 'global consequentialism' and such. Challenges idealized moral theories by integrating insights from neuroscience and machine learning into a computationally analyzable thought experiment.</p>
+</ul>
+<h3 id="Moral-philosophy">Moral philosophy<a class="anchor-link" href="#Moral-philosophy">&#182;</a></h3><ul>
+<li><p><strong>Practical ethics</strong>: Bounded rationality challenges moral theories that assume unlimited reasoning capabilities. It emphasizes the importance of practical ethics - balancing ideal outcomes with realistic human behavior. It suggests that simple, clear recommendations (e.g., donating a fixed percentage of income) may be optimal, in alignment with, for example, Peter Singer's work on making ethics accessible and actionable as in Singer (2009).</p>
+</li>
+<li><p><strong>Morality as inference</strong>: The inference setup suggests framing existing moral theories as imperfect inferences of an ideal theory, assuming a common ground that different theories attempt to capture. This perspective allows for combining theories to better approximate the ideal, even when they seem incommensurable. This approach offers a new angle on moral uncertainty, potentially informing frameworks like 'variance voting' and the 'moral parliament' (MacAskill, Bykvist and Ord, 2020). For example, it suggests that the credences assigned to different moral theories in these existing approaches could be informed by Bayesian calculations based on rough models for how each theory approximates the ideal theory.</p>
+</li>
+<li><p><strong>Inseparability of empirical and moral uncertainty</strong>: The model highlights that adjustments for empirical uncertainty cannot necessarily be treated separately from moral uncertainty, as the optimal strategy depends on both the agent's observation scenario and their model uncertainty (as proxied by the number of samples) and this dependence can be complex.</p>
+</li>
+<li><p><strong>Fanaticism vs. caution</strong>:  The model endogenously generates that in situations of cluelessness safe bets are preferred over high-risk, 'fanatical' bets, while the opposite can be true in situations that are closer to ideal.</p>
+</li>
+<li><p><strong>Rational uncertainty aversion</strong>: The model suggests that some degree of risk aversion in moral decision-making can be rational, providing a new perspective on issues like cause-area diversification in philanthropy. This could complement existing arguments for moral hedging and provide a formal basis for intuitions about moral uncertainty (MacAskill, Bykvist and Ord, 2020).</p>
+</li>
+<li><p><strong>Computational moral philosophy</strong>: This model demonstrates the potential for integrating insights from neuroscience and machine learning into philosophically relevant thought experiments. It offers a mathematical framework for moral uncertainty that complements existing abstract work (e.g., on 'global consequentialism') and challenges idealized moral theories by incorporating realistic cognitive constraints.</p>
 </li>
 </ul>
 <h3 id="Techno-philosophies">Techno-philosophies<a class="anchor-link" href="#Techno-philosophies">&#182;</a></h3><ul>
-<li><strong>Alignment with d/acc</strong>: The results of the model are perhaps aligned with Vitalik Buterin's d/acc (defensive accelerationism) over the extreme optimism of e/acc and the extreme pessimism of doomers. This is because it highlights that humility and risk aversion can be optimal in the most complex, uncertain situations (like advancing global progress), though it fully supports aggressive, high-risk bets in certain situations.</li>
+<li><strong>Alignment with d/acc (defensive accelerationism)</strong>: The results of the model are perhaps aligned with Vitalik Buterin's d/acc over the extreme optimism of 'e/acc' and the extreme pessimism of 'doomers'. This is because it highlights that humility and risk aversion can be optimal in the most complex, uncertain situations (like advancing global progress), though it fully supports aggressive, high-risk bets in certain situations.</li>
 </ul>
-<h3 id="Economics,-Statistics-and-Machine-Learning">Economics, Statistics and Machine Learning<a class="anchor-link" href="#Economics,-Statistics-and-Machine-Learning">&#182;</a></h3><ul>
+<h3 id="Economics,-statistics-and-machine-learning">Economics, statistics and machine learning<a class="anchor-link" href="#Economics,-statistics-and-machine-learning">&#182;</a></h3><ul>
 <li><strong>Endogenous robustness</strong>: This model demonstrates how uncertainty aversion can arise endogenously and rationally, contrasting with approaches that treat robustness as an intrinsic good.</li>
+<li><strong>Explanation for evil-agent framing</strong>: A popular way to frame robustness is as a two-player game between the agent and the environment, where the environment has the ability to distort the relevant probability distribution and it has the 'evil' goal of minimizing the agent's utility subject to constraints on how much distortion it can cause. The present toy model highlights that asymmetry of this evil-agent framing (why should the environment be anything but neutral?) makes sense because any deviation in the agent's information will cause sub-optimal performance. This connection is not apparent in most of the literature on this topic as conventionally model estimation is separated from the agent choosing their action policy.</li>
 <li><strong>Optimal robustness</strong>: By potentially inferring the estimation abilities of different actors, this approach might help define optimal levels of robustness rather than leaving it as a subjective hyperparameter.</li>
 <li><strong>Adversarial framing</strong>: The model challenges the asymmetric presumption of adversariality in some robustness models, suggesting a more balanced approach to uncertainty.</li>
 <li><strong>Exploration and uncertainty aversion</strong>: This framework shows how agents can be both uncertainty averse and explorative, reconciling seemingly contradictory aspects of decision-making under uncertainty.</li>
+<li><strong>Non-maximum likelihood estimation</strong>: If estimating a model (i.e. for $p(s|o)$) to support utility maximization under bounded rationality it is possible, likely, that the best possible model will depend on both the data and $U$ - not just the data. That is, the model should be fit to produce the best results in practice, not to fit the data the best.</li>
 </ul>
 
 </div>
@@ -15562,7 +15689,7 @@ Offers mathematical version of moral uncertainty that complements existing more
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Research-Ideas-and-Questions">Research Ideas and Questions<a class="anchor-link" href="#Research-Ideas-and-Questions">&#182;</a></h2><p>This model highlights several promising directions for future research, including:</p>
+<h2 id="5.-Research-ideas-and-questions">5. Research ideas and questions<a class="anchor-link" href="#5.-Research-ideas-and-questions">&#182;</a></h2><p>This model highlights several promising directions for future research, including:</p>
 <ul>
 <li>Extending the model to address its limitations and to capture more complex, multi-period decision scenarios, and applying it to classic problems in decision theory and economics.</li>
 <li>Investigating how different forms of bounded rationality interact, particularly in multi-agent competitive or cooperative settings.</li>
@@ -15581,14 +15708,14 @@ Offers mathematical version of moral uncertainty that complements existing more
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>This research note introduces a simple toy model that highlights the important implications of bounded-rational inference for decision-making, including that:</p>
+<h2 id="6.-Conclusion">6. Conclusion<a class="anchor-link" href="#6.-Conclusion">&#182;</a></h2><p>This research note introduces a simple toy model that highlights the important implications of bounded rational inference, including that:</p>
 <ul>
-<li>Combining multiple models can lead to superior outcomes.</li>
-<li>Uncertainty aversion, including both risk and ambiguity aversion, can emerge as a rational strategy in scenarios where perfect information and reasoning is far from possible.</li>
+<li>Combining multiple, independent models in an inference setting leads to superior outcomes.</li>
+<li>Both risk and ambiguity aversion can be expected-value maximizing under some forms of bounded rationality.</li>
 <li>Frontier curves provide a powerful way to visualize complex decision-making trade-offs.</li>
 </ul>
-<p>These insights challenge conventional thinking across multiple disciplines. This includes offering a new perspective on topics like diversification in philanthropy and impact investing, capabilities versus alignment trade-offs in AI, moral uncertainty in philosophy, and robustness in economic models.</p>
-<p>I invite researchers from AI, economics, philosophy, and beyond to explore these ideas further. If you find this model intriguing and see potential applications in your field, I’d love to hear from you. Please reach out, whether you're interested in integrating these ideas into your work or developing a paper or applied project together.</p>
+<p>These insights challenge conventional thinking across multiple disciplines. This includes offering a new perspective on topics like diversification in philanthropy and impact investing, capabilities versus safety trade-offs for AGI, moral uncertainty in philosophy, and robustness in economic models.</p>
+<p>I encourage researchers from AI, economics, philosophy, and beyond to explore these ideas further. If you find models like this intriguing and see potential relevance to your field, I’d love to hear from you. Please reach out, whether you're interested in integrating these ideas into your work or developing a paper or applied project together.</p>
 <p>As we face increasingly complex global challenges, further study of models like this can help develop a more nuanced understanding of rational decision-making – one that embraces our limitations while striving for optimal outcomes. Future research should focus on refining these models and developing practical applications to enhance decision-making strategies in an uncertain world.</p>
 
 </div>
@@ -15602,7 +15729,7 @@ Offers mathematical version of moral uncertainty that complements existing more
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr />
-<h2 id="Code">Code<a class="anchor-link" href="#Code">&#182;</a></h2><p>This section presents the code for this example. It was developed by adapting code from Genewein et al. (2015). The full codebase, including this notebook and all supporting files, is available on GitHub <a href="https://github.com/jh-tpp/Bounded-Rational-Frontier">here</a>. Readers are encouraged to explore, run, and build upon this code.</p>
+<h2 id="Code">Code<a class="anchor-link" href="#Code">&#182;</a></h2><p>This section presents the code for this example. It was developed by adapting code from Genewein et al. (2015). The full codebase, including this notebook and all supporting files, is available on GitHub <a href="https://github.com/jh-tpp/Bounded-Rational-Frontier">here</a>.</p>
 
 </div>
 </div>
@@ -15636,8 +15763,43 @@ Offers mathematical version of moral uncertainty that complements existing more
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate results for different complexity costs</span>
-<span class="n">beta_ao_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">.01</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Define the range for the complexity hyperparameter</span>
-<span class="n">results_b</span><span class="p">,</span> <span class="n">scenarios_b</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">beta_ao_values</span><span class="o">=</span><span class="n">beta_ao_values</span><span class="p">)</span>
+<span class="n">gamma_ao_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">.0001</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Define the range for the complexity hyperparameter</span>
+<span class="n">results_b</span><span class="p">,</span> <span class="n">scenarios_b</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">gamma_ao_values</span><span class="o">=</span><span class="n">gamma_ao_values</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot probability models for a specific scenario</span>
+<span class="n">plot_scenario_prob_dist</span><span class="p">(</span><span class="n">scenarios_b</span><span class="p">,</span><span class="n">scenario_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">gamma_ao</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Utility (impact) matrix for a specific scenario</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="n">scenarios_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">visualize_matrix</span><span class="p">(</span><span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;U_mat&#39;</span><span class="p">],</span> <span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;s_values&#39;</span><span class="p">],</span> <span class="n">scenario</span><span class="p">[</span><span class="s1">&#39;a_values&#39;</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;State s&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Action a&quot;</span><span class="p">,</span> <span class="n">legendlabel</span><span class="o">=</span><span class="s2">&quot;U(a,s)&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15655,7 +15817,26 @@ Offers mathematical version of moral uncertainty that complements existing more
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate results for different risk levels and sample sizes</span>
 <span class="n">v_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.01</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Define the range for v</span>
-<span class="n">results_v</span><span class="p">,</span> <span class="n">scenarios_v</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="n">v_values</span><span class="p">,</span><span class="n">n_samp_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">128</span><span class="p">],</span><span class="n">gamma_values</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">beta_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">],</span><span class="n">Ni</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">results_v0</span><span class="p">,</span> <span class="n">scenarios_v0</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="n">v_values</span><span class="p">,</span><span class="n">gamma_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mf">.0001</span><span class="p">])</span>
+<span class="n">results_v0b</span><span class="p">,</span> <span class="n">scenarios_v0b</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="n">v_values</span><span class="p">,</span><span class="n">gamma_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate results for different risk levels and sample sizes</span>
+<span class="n">v_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">1.01</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># Define the range for v</span>
+<span class="n">results_v</span><span class="p">,</span> <span class="n">scenarios_v</span> <span class="o">=</span> <span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="n">v_values</span><span class="p">,</span><span class="n">n_samp_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">128</span><span class="p">],</span><span class="n">gamma_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mf">.0001</span><span class="p">],</span><span class="n">Ni</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15673,7 +15854,7 @@ Offers mathematical version of moral uncertainty that complements existing more
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate results for different levels of explicit risk aversion</span>
 <span class="n">g_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">num</span><span class="o">=</span><span class="mi">30</span><span class="p">)))</span> <span class="c1">#Define the range for gamma</span>
-<span class="n">results_g</span><span class="p">,</span> <span class="n">scenarios_g</span><span class="o">=</span><span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="p">[</span><span class="mf">1.1</span><span class="p">],</span><span class="n">n_samp_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">gamma_values</span><span class="o">=</span><span class="n">g_values</span><span class="p">,</span><span class="n">beta_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mi">1000</span><span class="p">],</span><span class="n">Ni</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">uscen_ids</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">results_g</span><span class="p">,</span> <span class="n">scenarios_g</span><span class="o">=</span><span class="n">generate_results</span><span class="p">(</span><span class="n">da</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">v_values</span><span class="o">=</span><span class="p">[</span><span class="mf">1.1</span><span class="p">],</span><span class="n">n_samp_values</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">gamma_values</span><span class="o">=</span><span class="n">g_values</span><span class="p">,</span><span class="n">gamma_ao_values</span><span class="o">=</span><span class="p">[</span><span class="mf">.0001</span><span class="p">],</span><span class="n">Ni</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">uscen_ids</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15689,41 +15870,20 @@ Offers mathematical version of moral uncertainty that complements existing more
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Save res_v</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Save res_v and res_g</span>
 <span class="c1"># with open(&#39;Results/results_v.pkl&#39;, &#39;wb&#39;) as f:</span>
 <span class="c1">#     pickle.dump({&#39;results_v&#39;: results_v, &#39;scenarios_v&#39;: scenarios_v}, f)</span>
+<span class="c1"># with open(&#39;Results/results_g.pkl&#39;, &#39;wb&#39;) as f:</span>
+<span class="c1">#     pickle.dump({&#39;results_g&#39;: results_g, &#39;scenarios_g&#39;: scenarios_g}, f)</span>
 
 <span class="c1"># Load res_v from the pickle file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Results/results_v.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">loaded_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="c1"># Access the loaded variables</span>
-<span class="n">results_v</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;results_v&#39;</span><span class="p">]</span>
-<span class="n">scenarios_v</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;scenarios_v&#39;</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Save res_g</span>
-<span class="c1"># with open(&#39;Results/results_g.pkl&#39;, &#39;wb&#39;) as f:</span>
-<span class="c1">#     pickle.dump({&#39;results_g&#39;: results_g, &#39;scenarios_g&#39;: scenarios_g}, f)</span>
-
+<span class="n">results_v</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;results_v&#39;</span><span class="p">];</span> <span class="n">scenarios_v</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;scenarios_v&#39;</span><span class="p">]</span>
 <span class="c1"># Load res_g from the pickle file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Results/results_g.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">loaded_data</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="c1"># Access the loaded variables</span>
-<span class="n">results_g</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;results_g&#39;</span><span class="p">]</span>
-<span class="n">scenarios_g</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;scenarios_g&#39;</span><span class="p">]</span>
+<span class="n">results_g</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;results_g&#39;</span><span class="p">];</span> <span class="n">scenarios_g</span> <span class="o">=</span> <span class="n">loaded_data</span><span class="p">[</span><span class="s1">&#39;scenarios_g&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15739,8 +15899,9 @@ Offers mathematical version of moral uncertainty that complements existing more
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot frontier curves for policy complexity vs expected utility</span>
-<span class="n">plot_frontiers</span><span class="p">(</span><span class="n">results_b</span><span class="p">,</span><span class="n">scenarios_b</span><span class="p">,</span><span class="n">x_field</span><span class="o">=</span><span class="s1">&#39;I_ao&#39;</span><span class="p">,</span><span class="n">y_field</span><span class="o">=</span><span class="s1">&#39;E_U&#39;</span><span class="p">,</span><span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Policy Complexity&#39;</span><span class="p">,</span><span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Expected Impact&#39;</span><span class="p">,</span><span class="n">highlight_max</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot frontier curves for risk level vs expected utility</span>
+<span class="n">plot_frontiers</span><span class="p">(</span><span class="n">results_v0</span><span class="p">,</span><span class="n">scenarios_v0</span><span class="p">,</span><span class="n">x_field</span><span class="o">=</span><span class="s1">&#39;Var_U&#39;</span><span class="p">,</span><span class="n">y_field</span><span class="o">=</span><span class="s1">&#39;E_U&#39;</span><span class="p">,</span><span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Volatility&#39;</span><span class="p">,</span><span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Expected Value&#39;</span><span class="p">,</span><span class="n">highlight_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Low Price of Complexity&quot;</span><span class="p">)</span>
+<span class="n">plot_frontiers</span><span class="p">(</span><span class="n">results_v0b</span><span class="p">,</span><span class="n">scenarios_v0b</span><span class="p">,</span><span class="n">x_field</span><span class="o">=</span><span class="s1">&#39;Var_U&#39;</span><span class="p">,</span><span class="n">y_field</span><span class="o">=</span><span class="s1">&#39;E_U&#39;</span><span class="p">,</span><span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Volatility&#39;</span><span class="p">,</span><span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Expected Value&#39;</span><span class="p">,</span><span class="n">highlight_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;High Price of Complexity&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15775,25 +15936,8 @@ Offers mathematical version of moral uncertainty that complements existing more
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot frontier curves for impact volatility vs expected utility with explicit risk aversion</span>
-<span class="n">plot_frontiers</span><span class="p">(</span><span class="n">results_g</span><span class="p">,</span><span class="n">scenarios_g</span><span class="p">,</span><span class="n">x_field</span><span class="o">=</span><span class="s1">&#39;Vol_U_sample&#39;</span><span class="p">,</span><span class="n">y_field</span><span class="o">=</span><span class="s1">&#39;E_U_sample&#39;</span><span class="p">,</span><span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Impact Volatility&#39;</span><span class="p">,</span><span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Expected Impact&#39;</span><span class="p">,</span><span class="n">highlight_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">display_error_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot_frontiers</span><span class="p">(</span><span class="n">results_g</span><span class="p">,</span><span class="n">scenarios_g</span><span class="p">,</span><span class="n">x_field</span><span class="o">=</span><span class="s1">&#39;Vol_U_sample&#39;</span><span class="p">,</span><span class="n">y_field</span><span class="o">=</span><span class="s1">&#39;E_U_sample&#39;</span><span class="p">,</span><span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;Volatility&#39;</span><span class="p">,</span><span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;Expected Value&#39;</span><span class="p">,</span><span class="n">highlight_max</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">display_error_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">bar_by_scenario</span><span class="p">(</span><span class="n">results_g</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot probability models for a specific scenario</span>
-<span class="n">plot_scenario_prob_dist</span><span class="p">(</span><span class="n">scenarios_v</span><span class="p">,</span><span class="n">scenario_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta_ao</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15808,14 +15952,15 @@ Offers mathematical version of moral uncertainty that complements existing more
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Technical-Discussion">Technical Discussion<a class="anchor-link" href="#Technical-Discussion">&#182;</a></h2><p>Consider a decision making as inference context where an agent uses observations $o$ to infer the world state $s$ and decide a policy $p(a|o)$ for actions $a$ that will maximize their expected utility:
-$$\underset{p(a|o)}{\operatorname{arg~max}}~\mathbf{E}_{p(s,o,a)}[U(s,a)]$$</p>
+<h2 id="Technical-Notes">Technical Notes<a class="anchor-link" href="#Technical-Notes">&#182;</a></h2><p>Consider a decision-making as inference context where an agent uses observations $o$ to infer the world state $s$ and decide a policy $p(a|o)$ for actions $a$ that will maximize their expected utility:
+$$\underset{p(a|o)}{\operatorname{arg~max}}~\mathbf{E}_{p(s,o,a)}[U(s,a)]$$
+where in the ideal case the only constraint is that $p(a|o)$ be a valid probability distribution.</p>
 <p>Information-theoretic frameworks like 'bounded rationality' (Genewein et al., 2015) and 'policy compression' (Lai, Gershman, 2024) add a term to account for the computational cost of converting observations into actions:
-$$\underset{p(a|o)}{\operatorname{arg~max}}~\mathbf{E}_{p(s,o,a)}[U(s,a)] - \frac{1}{\beta_{ao}} I(O;A),$$
-where $I(O;A)$ is the mutual information between the distribution of observations and actions. Note that in general they may also add other terms, including $I(O;S)$.</p>
+$$\underset{p(a|o)}{\operatorname{arg~max}}~\mathbf{E}_{p(s,o,a)}[U(s,a)] - \gamma_{ao} I(O;A),$$
+where $I(O;A)$ is the mutual information between the distribution of observations and actions and $\gamma_{ao}$ is the 'price of complexity' (at least in this note). In general they may also add other terms, including $I(O;S)$.</p>
 <p>The solution is given by:
 $$\begin{align}
-p^*(a|o)&amp;=\frac{1}{Z(o)} p(a) \exp \left(\beta_{ao}  E[U(s,a)|a,o]\right)
+p^*(a|o)&amp;=\frac{1}{Z(o)} p(a) \exp \left(\frac{1}{\gamma_{ao}}  E[U(s,a)|a,o]\right)
 \\
 E[U(s,a)|a,o]&amp;=\sum_s p(s|o) U(s,a)
 \\
@@ -15824,8 +15969,10 @@ p(a)&amp;=\sum_{s,o} p(s)p(o|s)p^*(a|o),
 where $Z(o)$ denotes the corresponding normalization constant. In most cases it is not possible to solve these equations analytically. But, generally the solution can be found numerically via the Blahut-Arimoto algorithm.</p>
 <p>However, the above solution assumes that the agent can accurately calculate $E[U(s,a)|a,o]$. If this expectation is complex and costly to calculate then the agent will only have a noisy estimate. Even unbiased noise inside the exponential term in the solution can result in suboptimal policies. The simple model in this note assumes the agent makes a noisy estimate of $\hat{E}[U(s,a)|a,o]$ and then repeatedly uses this during the Blahut-Arimoto algorithm.</p>
 <p>The model with explicit risk aversion is a modification to:
+$$\underset{p(a|o)}{\operatorname{arg~max}}~\mathbf{E}_{p(s,o,a)}[U(s,a)] - \gamma_{ao} I(O;A)- \gamma \mathbf{E}_{p(s,o,a)}[ Var[U(s,a)|a,o] ],$$
+with solution,
 $$\begin{align}
-p^*(a|o)&amp;=\frac{1}{Z(o)} p(a) \exp \left(\beta_2  \hat{E}[U(s,a)|a,o] - \gamma Var[U(s,a)|a,o] \right)
+p^*(a|o)&amp;=\frac{1}{Z(o)} p(a) \exp \left( \frac{1}{\gamma_{ao}} ( \hat{E}[U(s,a)|a,o] - \gamma Var[U(s,a)|a,o] ) \right)
 \end{align}$$
 where $\gamma$ is the risk aversion parameter and $Var[U(s,a)|a,o]$ is the variance of $U$ conditional on $a$ and $o$. This assumes that the agent is endowed with estimates of $Var[U(s,a)|a,o]$. This may seem unlikely as the key idea here is that the agent struggles to estimate $E[U(s,a)|a,o]$. But, it is plausible the agent has some intuitive idea of the level of $Var[U(s,a)|a,o]$. Future research could make this model more realistic.</p>
 
@@ -15839,13 +15986,15 @@ where $\gamma$ is the risk aversion parameter and $Var[U(s,a)|a,o]$ is the varia
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p>Bhui R., Lai L., &amp; Gershman S. J. (2021) Resource-rational decision making. Current Opinion in Behavioral Sciences, Volume 41.</p>
-<p>Buchak, L. How Should Risk and Ambiguity Affect Our Charitable Giving? Utilitas. 2023;35(3):175-197.</p>
-<p>Genewein, T., Leibfried, F., Grau-Moya, J. &amp; Braun, D. A. (2015) Bounded Rationality, Abstraction, and Hierarchical Decision-Making: An Information-Theoretic Optimality Principle. Front. Robot. AI 2:27.</p>
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p>Bhui R., Lai L., and Gershman S. J. (2021) Resource-rational decision making. Current Opinion in Behavioral Sciences, Volume 41.</p>
+<p>Buchak, L. (2023) How Should Risk and Ambiguity Affect Our Charitable Giving? Utilitas 35(3):175-197.</p>
+<p>Genewein, T., Leibfried, F., Grau-Moya, J. and Braun, D. A. (2015) Bounded Rationality, Abstraction, and Hierarchical Decision-Making: An Information-Theoretic Optimality Principle. Front. Robot. AI 2:27.</p>
 <p>Lai, L., Gershman, S. J. (2024) Human decision making balances reward maximization and policy compression. PLOS Computational Biology 20(4).</p>
 <p>Lieder, F., Griffiths, T. L. (2019) Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources. Behav Brain Sci.</p>
-<p>Lieder, F., Hsu, M., &amp; Griffiths, T. L. (2014). The high availability of extreme events serves resource-rational decision-making. Proceedings of the Annual Meeting of the Cognitive Science Society, 36.</p>
-<p>MacAskill, W., Bykvist, K., &amp; Ord, T. (2020). Moral uncertainty. Oxford University Press.</p>
+<p>Lieder, F., Hsu, M., and Griffiths, T. L. (2014). The high availability of extreme events serves resource-rational decision-making. Proceedings of the Annual Meeting of the Cognitive Science Society, 36.</p>
+<p>MacAskill, W., Bykvist, K., and Ord, T. (2020). Moral uncertainty. Oxford University Press.</p>
+<p>Simon, H. A. (1955) A Behavioral Model of Rational Choice. Quarterly Journal of Economics, 69(1): 99–118.</p>
+<p>Singer, P. (2009) The Life You Can Save: Acting Now to End World Poverty. Random House.</p>
 
 </div>
 </div>
